@@ -1,0 +1,23 @@
+
+function MobilePhone(model, size, price, number){
+  	var _model;
+  	var _price=0;	
+  
+  	this.getModel = function(){
+      return model;
+    }
+  	this.setModel = function(newModel){
+      if(newModel.length>4){
+        _model = newModel;
+      }
+    }
+  
+  	this.getPrice = function(){
+      return _price;
+    }
+  	this.setPrice = function(newPrice){
+      if(_price<newPrice){
+        _price = newPrice;
+      }
+    }	
+}
