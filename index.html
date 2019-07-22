@@ -1,34 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="myTimerApp">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="index.js"></script>    
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script src="./reverseString.js"></script>
+    <script src="./timectrl.js"></script>
 </head>
-<body>
-    <p class="yolo">Hello World!</p>
-    <p>Name : <input type="text" id="name"></p>
-    <p>Age  : <input type="number" id="age"></p>
-    <p>Password  : <input type="password" id="password"></p>
-    <input type="radio" name="gender" value="male" checked="checked" > Male<br>
-    <input type="radio" name="gender" value="female"> Female<br>
-    <input type="radio" name="gender" value="other"> Other
-<br><br>
-<select id="carCompany">
-        <option value="volvo">Volvo</option>
-        <option value="Mitsubishi">Mitsubishi</option>
-        <option value="Honda">Honda</option>
-        <option value="Ford">Ford</option>
-</select>
-<br>
-<br>
-<input type="checkbox" id="hasBike" name="vehicle1" value="Bike"> I have a bike<br>
-<br>
-    <button onclick="clicked()">Click Me!</button>
-    
+<body >
+
+    <div ng-controller="timeCtrl">
+            <h1>Current time</h1>
+            <h1>{{time}}</h1>
+            <button ng-click="increaseTime()">Click to show current time</button>
+    </div>
+    <br>
+    <div ng-controller="reverseString">
+            <h1>My name</h1>
+            <h1>{{name}}</h1>
+            <button ng-click="reverseString()">Click to reverse the string</button>
+    </div>
 </body>
 </html>
