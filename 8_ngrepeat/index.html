@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="dataApp">
+<head>
+    <title>Clock!</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script src="parentCtrl.js"></script>
+    <script src="Mobile.js"></script>
+</head>
+<body >
+
+    <div ng-controller="parentCtrl">
+
+        <p>{{devices | json}}</p>
+            
+        <p ng-repeat="m in devices"> Name: <b>{{m.model}}</b> Color: <b>{{m.color}}</b> Price: <b>{{m.price}}</b></p>
+
+        <table border="1">
+            <tr style="background:lightyellow ; padding: 10px">
+                <th>#</th>
+                <th>MODEL</th>
+                <th>COLOR</th>
+                <th>PRICE</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="m in devices">
+                <td> {{$index}} </td>
+                <td>{{m.model}}</td>
+                <td>{{m.color}}</td>
+                <td>{{m.price}}</td>
+                <td><button ng-click = "removeDevice($index)">X</button></td>
+            </tr>
+        </table>
+
+        <div>
+            <p >MODEL = <input  ng-model="model"type="text"/></p>
+            <p > COLOR = <input  ng-model="color" type="text"/></p>
+            <p  >PRICE = <input ng-model="price" type="text"/></p>
+        </div>
+        <button ng-click="addDevice()">Add Device</button>
+        <p>ID = <input ng-model="index" type="text"/></p>
+        <button ng-click="removeDevice()" >Remove Device</button>
+
+
+    </div>
+
+    
+    <br>
+</body>
+</html>
