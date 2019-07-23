@@ -9,27 +9,27 @@
     <script src="Mobile.js"></script>
 </head>
 <body >
-
     <div ng-controller="parentCtrl">
-
-        <p>{{devices | json}}</p>
-            
-        <p ng-repeat="m in devices"> Name: <b>{{m.model}}</b> Color: <b>{{m.color}}</b> Price: <b>{{m.price}}</b></p>
+        {{editable}}
 
         <table border="1">
             <tr style="background:lightyellow ; padding: 10px">
                 <th>#</th>
-                <th>MODEL</th>
-                <th>COLOR</th>
-                <th>PRICE</th>
-                <th></th>
+                <th><a href ng-click="sortData('model')">MODEL</a> 
+                <th><a href ng-click="sortData('color')">COLOR</a>
+                <th><a href ng-click="sortData('price')">PRICE</a>
+                <th>Delete</th>
+                <th ng-show="editable">Edit</th>
+                <th ng-hide="editable">Save</th>
             </tr>
             <tr ng-repeat="m in devices">
-                <td> {{$index}} </td>
+                <td>{{$index}} </td>
                 <td>{{m.model}}</td>
                 <td>{{m.color}}</td>
                 <td>{{m.price}}</td>
                 <td><button ng-click = "removeDevice($index)">X</button></td>
+                <td ng-show="editable"><button ng-click = "editDevice($index)">Edit</button></td>
+                <td ng-hide="editable"><button ng-click = "saveDevice($index)">Save</button></td>
             </tr>
         </table>
 
@@ -40,12 +40,8 @@
         </div>
         <button ng-click="addDevice()">Add Device</button>
         <p>ID = <input ng-model="index" type="text"/></p>
-        <button ng-click="removeDevice()" >Remove Device</button>
-
-
+        <button ng-click="removeDevice(index)" >Remove Device</button>
     </div>
-
-    
     <br>
 </body>
 </html>

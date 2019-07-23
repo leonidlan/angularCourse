@@ -1,2 +1,1 @@
-// bootstrap the application
-const module = angular.module("dataApp", [])
+var app = angular.module("dataApp", [])
