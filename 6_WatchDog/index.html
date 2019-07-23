@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="dataApp">
+<head>
+    <title>Clock!</title>
+    <script src="angular.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script src="parentCtrl.js"></script>
+    <script src="childCtrl.js"></script>
+    <script src="brotherCtrl.js"></script>
+</head>
+<body >
+
+    <div ng-controller="parentCtrl">
+        <p>X = <input type="string" ng-model="x"></p>
+    </div>
+    <div ng-controller="brotherCtrl">
+        <p>{{everyTime()}}</p>
+    </div>
+    
+    <br>
+</body>
+</html>
