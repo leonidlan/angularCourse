@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="dataApp">
+<head>
+    <title>Clock!</title>
+    <script src="angular.js"></script>
+
+    <script src="bootstrap.js"></script>
+
+    <script src="dataService.js"></script>
+
+    <script src="parentCtrl.js"></script>
+    <script src="sonCtrl.js"></script>
+
+</head>
+<body >
+    <div ng-controller="parentCtrl">
+        <div style="float:left; margin-left:15px;" ng-repeat="number in memoryArray track by $index">
+            <div ng-show="!memoryShowIndexArray[$index] ">
+                <button ng-disabled="memoryDiscoveredArray[$index]" ng-click="hideMe($index)">{{number}}</button>
+            </div>
+            <div ng-show="memoryShowIndexArray[$index]">
+                    <button  ng-click="showMe($index)">X</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <button ng-disabled="numberOfOpenNumbers!=2" ng-click="clearOpenGuess()">clearOpenGuess</button>
+    </div>
+    <div ng-controller="sonCtrl">
+      Correct answers: {{myNum}}
+      <br>
+      Number of guesses: {{myGuesses}}
+    </div>
+</body>
+</html>
